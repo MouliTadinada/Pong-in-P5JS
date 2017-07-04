@@ -9,8 +9,10 @@ function Bar(x) {
 }
 
 Bar.prototype.show = function () {
-	fill(this.red, 255, 255);
-	stroke(0);
+	//fill(this.red, 255, 255);
+	//stroke(0);
+	fill(255);
+	noStroke();
 	rectMode(CENTER);
 	rect(this.x, this.y, this.w, this.h);
 }
