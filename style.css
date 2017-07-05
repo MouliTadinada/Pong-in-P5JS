@@ -1,9 +1,7 @@
 body {
 	padding: 0;
 	margin: 0;
-	background-color: darkgray;
-}
-
-h1 {
-	color: aliceblue;
+	background-color: RGB(166, 138, 230);
+	color: white;
+	text-align: right;
 }

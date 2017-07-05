@@ -1,7 +1,7 @@
 function Paddle(x) {
 	this.x = x;
-	this.y = height / 2;
-	this.h = height / 5;
+	this.y = board.h / 2;
+	this.h = board.h / 5;
 	this.w = 20;
 	this.isMovable = false;
 	this.score = 0;
@@ -17,7 +17,7 @@ Paddle.prototype.show = function () {
 }
 
 Paddle.prototype.update = function (puck) {
-	if (this.x > width / 2) {
+	if (this.x > board.w / 2) {
 		if (puck.vel.x > 0) {
 			this.isMovable = true;
 		} else {
@@ -33,10 +33,14 @@ Paddle.prototype.update = function (puck) {
 }
 
 Paddle.prototype.move = function (mY) {
+	if (board.isAndroid) {
+		mY = map(mouseY, board.h, board.h + board.h / 2, 0, board.h);
+	}
 	if (this.isMovable) {
 		this.y = mY;
 	}
-	this.y = constrain(this.y, this.h / 2, height - this.h / 2);
+	this.y = constrain(this.y, this.h / 2, board.h - this.h / 2);
+
 }
 
 Paddle.prototype.render = function (mY, puck) {
@@ -44,4 +48,3 @@ Paddle.prototype.render = function (mY, puck) {
 	this.move(mY);
 	this.show();
 }
-

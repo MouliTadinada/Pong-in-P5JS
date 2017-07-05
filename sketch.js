@@ -1,7 +1,7 @@
 var board;
 
 function setup() {
-	board = new Board(windowWidth, windowHeight, 10);
+	board = new Board(windowWidth, windowHeight, 4);
 	board.create();
 }
 

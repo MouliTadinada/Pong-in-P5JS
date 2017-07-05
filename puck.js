@@ -21,19 +21,20 @@ Puck.prototype.update = function () {
 }
 
 Puck.prototype.reset = function () {
+	//console.log("RESETTING PUCK")
 	this.pos = this.originPos.copy();
 	this.vel = this.setVel();
 	this.vel.mult(this.speed);
 }
 
 Puck.prototype.edges = function (paddle1, paddle2) {
-	if (this.pos.y - this.r < 0 || this.pos.y + this.r > height) {
+	if (this.pos.y - this.r < 0 || this.pos.y + this.r > board.h) {
 		this.vel.y *= -1;
 	}
 	if (this.pos.x < 0) {
 		paddle2.score++;
 		this.reset();
-	} else if (this.pos.x > width) {
+	} else if (this.pos.x > board.w) {
 		paddle1.score++;
 		this.reset();
 	}
